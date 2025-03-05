@@ -1,9 +1,12 @@
 <script setup lang="ts">
-// 不需要在这里导入任何组件
+import NavBar from './components/NavBar.vue'
 </script>
 
 <template>
-  <router-view />
+  <NavBar />
+  <main class="main-content">
+    <router-view />
+  </main>
 </template>
 
 <style>
@@ -12,5 +15,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.main-content {
+  padding-top: 60px; /* 与导航栏高度相同 */
 }
 </style>
