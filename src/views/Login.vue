@@ -162,13 +162,10 @@ html, body {
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   margin: 0;
 }
-
 .login-box:hover {
-  transform: translateY(-5px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.1);
   background-color: rgba(255, 255, 255, 0.95);
 }
-
 .login-box h2 {
   text-align: center;
   margin-bottom: 2rem;
@@ -186,6 +183,34 @@ html, body {
   background-color: #f9fafb;
   border: 2px solid transparent;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* 添加表单项样式 */
+:deep(.el-form-item) {
+  margin-bottom: 24px;
+  min-height: 78px;
+  position: relative;
+}
+
+:deep(.el-form-item__error) {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  padding: 4px 0;
+  color: #f56c6c;
+  font-size: 13px;
+  line-height: 1.2;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.9;
+}
+
+:deep(.el-form-item.is-error) {
+  margin-bottom: 24px;
+}
+
+:deep(.el-form-item.is-error .el-input__wrapper) {
+  border-color: #f56c6c;
+  box-shadow: 0 0 0 1px rgba(245, 108, 108, 0.1);
 }
 
 .custom-input :deep(.el-input__wrapper:hover) {

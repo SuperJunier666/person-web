@@ -1,5 +1,44 @@
-# Vue 3 + TypeScript + Vite
+# 🌟 个人主页
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+这是一个 **简洁美观** 的个人主页，展示了我的基本信息、技术栈、项目经验以及联系方式。
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## ✨ 功能特点
+
+- **主页展示**：个性化介绍，支持头像、背景图等自定义信息。  
+- **技术栈**：展示个人技术栈，支持图标和文字描述。
+- **项目经验**：展示个人作品，支持跳转 GitHub / 详细介绍。  
+- **联系信息**：包含邮箱、社交媒体链接，方便联系。  
+- **响应式设计**：支持 PC 和移动端自适应布局。  
+- **暗黑模式**：支持 **Light / Dark** 主题切换（可选）。  
+
+
+## 🚀 快速开始
+
+### 1️⃣ 克隆项目
+
+```bash
+git clone https://github.com/your-username/your-portfolio.git
+cd your-portfolio
+```
+
+### 2️⃣ 安装依赖
+
+```bash
+npm install  # 或者 yarn install
+```
+
+### 3️⃣ 运行开发环境
+
+```bash
+npm run dev  # 本地开发模式
+```
+
+
+## 📌 TODO 计划
+
+- [ ] 增加博客文章展示模块  
+- [ ] 添加留言 / 评论功能  
+- [ ] 进一步优化 SEO  
+- [ ] 支持更多动画交互  
+
+
