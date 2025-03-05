@@ -53,7 +53,7 @@ const handleSubmit = () => {
         <el-table-column prop="title" label="标题" />
         <el-table-column prop="createdAt" label="创建时间" width="180" />
         <el-table-column label="操作" width="120">
-          <template #default="">
+          <template #default="{  }">
             <el-button type="primary" size="small" link>查看</el-button>
           </template>
         </el-table-column>

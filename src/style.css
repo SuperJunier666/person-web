@@ -22,12 +22,34 @@ a:hover {
   color: #535bf2;
 }
 
-body {
+* {
   margin: 0;
-  display: flex;
-  place-items: center;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100dvw; /* 使用动态视口宽度，确保填满视口 */
+  height: 100dvh; /* 使用动态视口高度，确保填满视口 */
+  overflow: hidden; /* 防止滚动条出现 */
+  margin: 0;
+  padding: 0;
+}
+
+body {
   min-width: 320px;
   min-height: 100vh;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* 确保内容不会溢出 */
 }
 
 h1 {
@@ -55,14 +77,18 @@ button:focus-visible {
 }
 
 .card {
-  padding: 2em;
+  padding: 2em; /* 如果需要保持卡片内边距，可以保留，但注意嵌套影响 */
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100dvw; /* 使用动态视口宽度，确保填满视口 */
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* 确保内容不会溢出 */
 }
 
 @media (prefers-color-scheme: light) {
@@ -75,5 +101,18 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+  }
+  a:hover {
+    color: #535bf2;
+  }
+  button {
+    background-color: #1a1a1a;
   }
 }
