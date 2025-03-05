@@ -9,11 +9,13 @@ const router = useRouter()
 interface LoginForm {
   username: string
   password: string
+  rememberMe: boolean // 添加记住密码的状态
 }
 
 const loginForm = reactive<LoginForm>({
   username: '',
-  password: ''
+  password: '',
+  rememberMe: false // 默认不记住密码
 })
 
 const loading = ref(false)
@@ -74,7 +76,9 @@ const handleLogin = () => {
             class="custom-input"
           />
         </el-form-item>
-        <div class="form-footer">
+        <!-- 记住密码和忘记密码放在同一行 -->
+        <div class="form-options">
+          <el-checkbox v-model="loginForm.rememberMe" class="remember-me">记住密码</el-checkbox>
           <a href="#" class="forgot-password">忘记密码？</a>
         </div>
         <el-form-item>
@@ -115,7 +119,7 @@ html, body {
   width: 100dvw;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e0e7ff 50%, #d1e7dd 100%); /* 更优雅的渐变：浅灰、浅蓝、浅绿 */
+  background: linear-gradient(135deg, #f8fafc 0%, #e6f0ff 100%); /* 简洁的浅灰到浅蓝渐变 */
   overflow: hidden;
   position: relative;
 }
@@ -196,11 +200,35 @@ html, body {
   box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
 }
 
-.form-footer {
-  text-align: right;
-  margin: 0 0 1.5rem;
+/* 记住密码和忘记密码的容器样式 */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
 
+/* 记住密码样式 */
+.remember-me {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.remember-me :deep(.el-checkbox__input.is-checked .el-checkbox__inner) {
+  background-color: #4a90e2;
+  border-color: #4a90e2;
+}
+
+.remember-me :deep(.el-checkbox__input:hover .el-checkbox__inner) {
+  border-color: #4a90e2;
+}
+
+.remember-me :deep(.el-checkbox__input.is-focus .el-checkbox__inner) {
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+}
+
+/* 忘记密码样式 */
 .forgot-password {
   color: #64748b;
   text-decoration: none;
@@ -216,7 +244,6 @@ html, body {
   background-color: rgba(74, 144, 226, 0.1);
   text-decoration: underline;
 }
-
 .login-button {
   width: 100%;
   height: 50px;
@@ -267,6 +294,14 @@ html, body {
   .custom-input :deep(.el-input__wrapper) {
     padding: 8px 14px;
   }
+
+  .remember-me {
+    font-size: 13px;
+  }
+  
+  .forgot-password {
+    font-size: 13px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -289,8 +324,12 @@ html, body {
     padding: 6px 12px;
   }
   
+  .remember-me {
+    font-size: 12px;
+  }
+
   .forgot-password {
-    font-size: 13px;
+    font-size: 12px;
   }
 }
 
