@@ -1,14 +1,5 @@
 <script setup lang="ts">
-import { RouterLink, useRouter } from 'vue-router'
-import { ElMessage } from 'element-plus'
-
-const router = useRouter()
-
-const logout = () => {
-  localStorage.removeItem('token')
-  ElMessage.success('已退出登录')
-  router.push('/login')
-}
+import { RouterLink } from 'vue-router'
 </script>
 
 <template>
@@ -19,9 +10,6 @@ const logout = () => {
       <RouterLink to="/album" class="nav-link">相册</RouterLink>
       <RouterLink to="/journal" class="nav-link">日志</RouterLink>
     </nav>
-    <div class="logout-container">
-      <el-button type="danger" @click="logout">退出登录</el-button>
-    </div>
   </div>
 </template>
 
@@ -45,9 +33,5 @@ const logout = () => {
 .nav-link:hover {
   background-color: #2c3e50;
   color: white;
-}
-
-.logout-container {
-  margin-top: 2rem;
 }
 </style>

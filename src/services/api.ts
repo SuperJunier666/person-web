@@ -33,23 +33,30 @@ api.interceptors.response.use(
   (error) => {
     // 对响应错误做点什么
     if (error.response) {
-      switch (error.response.status) {
+      const status = error.response.status;
+      const message = error.response.data?.message || '未知错误';
+      
+      switch (status) {
         case 401:
-          // 未授权，清除token并跳转到登录页面
+          // 未授权，清除token
           localStorage.removeItem('token');
-          // 可以在这里添加路由跳转逻辑
+          console.error('未授权访问:', message);
           break;
         case 403:
-          // 权限不足
-          console.error('没有权限访问该资源');
+          console.error('权限不足:', message);
           break;
         case 404:
-          // 资源不存在
-          console.error('请求的资源不存在');
+          console.error('资源不存在:', message);
           break;
         default:
-          console.error('服务器错误');
+          console.error(`服务器错误(${status}):`, message);
       }
+    } else if (error.request) {
+      // 请求已发出但没有收到响应
+      console.error('网络错误，无法连接到服务器');
+    } else {
+      // 请求配置出错
+      console.error('请求配置错误:', error.message);
     }
     return Promise.reject(error);
   }

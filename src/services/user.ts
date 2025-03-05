@@ -50,6 +50,8 @@ export const userService = {
 
   // 退出登录
   async logout() {
-    return api.post('/auth/logout');
+    // 模拟退出登录成功
+    localStorage.removeItem('token');
+    return Promise.resolve(true);
   },
 };
