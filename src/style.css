@@ -1,0 +1,175 @@
+:root {
+  /* 苹果风格字体系统 */
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* 颜色方案支持 */
+  color-scheme: light dark;
+  
+  /* 主题颜色 - 浅色模式 */
+  --primary-color: #0071e3; /* 苹果蓝 */
+  --primary-dark: #0051a2;
+  --primary-light: #47a9ff;
+  --primary-rgb: 0, 113, 227;
+  
+  --text-primary: #1d1d1f; /* 近黑色文本 */
+  --text-secondary: #86868b; /* 次要文本 */
+  --text-tertiary: #6e6e73; /* 第三级文本 */
+  
+  --bg-light: #f5f5f7; /* 背景浅灰 */
+  --bg-white: #ffffff;
+  --bg-elevated: #f9f9fb; /* 稍微突出的背景 */
+  
+  --border-color: #d2d2d7; /* 边框颜色 */
+  --divider-color: #e5e5e5; /* 分隔线 */
+  
+  /* 阴影 */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  
+  /* 圆角 */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+  
+  /* 动画 */
+  --transition-fast: 0.2s;
+  --transition-normal: 0.3s;
+  --transition-slow: 0.5s;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* 默认浅色模式文本和背景 */
+  color: var(--text-primary);
+  background-color: var(--bg-light);
+
+  /* 文本渲染优化 */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100dvw; /* 使用动态视口宽度，确保填满视口 */
+  height: 100dvh; /* 使用动态视口高度，确保填满视口 */
+  overflow: hidden; /* 防止滚动条出现 */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* 确保内容不会溢出 */
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+button:hover {
+  background-color: var(--primary-dark);
+}
+
+button:focus,
+button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.3);
+}
+
+.card {
+  padding: 2em; /* 如果需要保持卡片内边距，可以保留，但注意嵌套影响 */
+}
+
+#app {
+  width: 100dvw; /* 使用动态视口宽度，确保填满视口 */
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* 确保内容不会溢出 */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* 暗色模式颜色 */
+    --primary-color: #0a84ff; /* 暗色模式苹果蓝 */
+    --primary-dark: #409cff;
+    --primary-light: #0071e3;
+    
+    --text-primary: rgba(255, 255, 255, 0.92);
+    --text-secondary: rgba(255, 255, 255, 0.67);
+    --text-tertiary: rgba(255, 255, 255, 0.47);
+    
+    --bg-light: #1c1c1e;
+    --bg-white: #2c2c2e;
+    --bg-elevated: #3a3a3c;
+    
+    --border-color: #38383a;
+    --divider-color: #38383a;
+    
+    /* 暗色模式阴影 */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+    
+    color: var(--text-primary);
+    background-color: var(--bg-light);
+  }
+  
+  /* 暗色模式下的链接颜色 */
+  a:hover {
+    color: var(--primary-dark);
+  }
+  
+  /* 暗色模式下的按钮样式 */
+  button {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+  }
+}
